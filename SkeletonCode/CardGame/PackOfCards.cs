@@ -13,10 +13,11 @@ namespace SkeletonCode.CardGame
 
         public PackOfCards()
         {
+            // Default constructor which creates the pack of cards.
             foreach (Suits suit in Enum.GetValues(typeof(Suits)))
             {
                 int i = 0;
-                foreach (string s in _numbers)
+                foreach (var s in _numbers)
                 {
                     _cards.Add(new Card(suit, s));
                     i++;
@@ -46,6 +47,7 @@ namespace SkeletonCode.CardGame
 
         public void Shuffle()
         {
+            // Fisher-Yates shuffle logic.
             for(int n = _cards.Count - 1; n > 0; --n)
             {
                 int k = _random.Next(n + 1);
@@ -57,11 +59,10 @@ namespace SkeletonCode.CardGame
 
         public ICard TakeCardFromTopOfPack()
         {
-            Cards.Remove();
-            _cards.First();
-            // Get the last card from the list
-            return();
-            _cards.First();
+            // Remove the first card from the pack and return it.
+            var firstCard = _cards.First();
+            _cards.Remove(firstCard);
+            return firstCard;
         }
     }
 }

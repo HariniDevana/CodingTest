@@ -10,8 +10,8 @@
 
     class Card : ICard
     {
-        protected Suits suit;
-        protected string cardValue;
+        private readonly Suits _suit;
+        private readonly string _cardValue;
 
         public Card()
         {
@@ -20,13 +20,13 @@
 
         public Card(Suits suit, string cardValue)
         {
-            this.suit = suit;
-            this.cardValue = cardValue;
+            _suit = suit;
+            _cardValue = cardValue;
         }
 
         public override string ToString()
         {
-            return string.Format("{0} of {1}", this.cardValue, this.suit);
+            return string.Format("{0} of {1}", _cardValue, _suit);
         }
     }
 }
